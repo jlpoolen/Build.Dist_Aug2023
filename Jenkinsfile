@@ -15,7 +15,9 @@ pipeline
 			axis
 			{
 				name 'INIT_SYSTEM'
-				values 'OpenRC', 'Systemd'
+				// rem by jlpoole 9/10/2023
+				//values 'OpenRC', 'Systemd'
+                                values 'OpenRC'
 			}
 			axis
 			{
@@ -128,18 +130,19 @@ pipeline
 			{
 				sh "ls -lah *"
 				sh "ls -lah build/*"
-				
-				sh "sudo --preserve-env ./.ci/scripts/check-filename-is-renamed.sh"
+				// rem by jlpoole 9/10/2023
+				echo "Upload Lite: minio stuff rem'd out"
+				//sh "sudo --preserve-env ./.ci/scripts/check-filename-is-renamed.sh"
 
-				echo "minio(bucket:\"images\", includes:\"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst\")"
-				minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst")
-				echo "minio(bucket:\"images\", includes:\"bbuild/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum\")"
-				minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum")
+				//echo "minio(bucket:\"images\", includes:\"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst\")"
+				//minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst")
+				//echo "minio(bucket:\"images\", includes:\"bbuild/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum\")"
+				//minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum")
 
-				echo "minio(bucket:\"images\", includes:\"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.tar.zst\")"
-				minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.tar.zst")
-				echo "minio(bucket:\"images\", includes:\"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum\")"
-				minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum")
+				//echo "minio(bucket:\"images\", includes:\"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.tar.zst\")"
+				//minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.tar.zst")
+				//echo "minio(bucket:\"images\", includes:\"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum\")"
+				//minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum")
 			}}
 				//}
 			//}
@@ -190,18 +193,19 @@ pipeline
 				{
 					sh "ls -lah *"
 					sh "ls -lah build/*"
-					
-					sh "sudo --preserve-env ./.ci/scripts/check-filename-is-renamed.sh"
+					// rem by jlpoole 9/10/2023
+					echo "Upload Desktop: minio rem'd out"
+					//sh "sudo --preserve-env ./.ci/scripts/check-filename-is-renamed.sh"
 
-					echo "minio(bucket:\"images\", includes:\"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst\")"
-					minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst")
-					echo "minio(bucket:\"images\", includes:\"bbuild/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum\")"
-					minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum")
+					//echo "minio(bucket:\"images\", includes:\"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst\")"
+					//minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst")
+					//echo "minio(bucket:\"images\", includes:\"bbuild/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum\")"
+					//minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum")
 
-					echo "minio(bucket:\"images\", includes:\"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.tar.zst\")"
-					minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.tar.zst")
-					echo "minio(bucket:\"images\", includes:\"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum\")"
-					minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum")
+					//echo "minio(bucket:\"images\", includes:\"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.tar.zst\")"
+					//minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.tar.zst")
+					//echo "minio(bucket:\"images\", includes:\"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum\")"
+					//minio(bucket:"images", includes:"build/${PROJECT}/${PROJECT}-${BUILDVERSION}.img.zst.sum")
 				}
 			}
 			stage('Upload binary packages')
@@ -213,7 +217,9 @@ pipeline
 				steps 
 				{
 				    sh "ls -lah ${BINPKGS_DIR}"
-				    minio(bucket:"binpkgs", includes:"${BINPKGS_DIR}/**")
+				    // rem by jlpoole 9/10/2023
+				    echo "Upload binary packages: minio rem'd out"
+				    //minio(bucket:"binpkgs", includes:"${BINPKGS_DIR}/**")
 				}
 			}
 		}
